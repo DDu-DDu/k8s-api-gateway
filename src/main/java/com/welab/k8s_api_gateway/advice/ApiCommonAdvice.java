@@ -39,7 +39,7 @@ public class ApiCommonAdvice {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({NotFound.class})
+    @ExceptionHandler({ClientError.class})
     public ApiResponseDto<String> handleClientError(ClientError e) {
         return ApiResponseDto.createError(
                 e.getErrorCode(),
