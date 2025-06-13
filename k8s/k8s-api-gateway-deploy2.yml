@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8s-api-gateway
-        image: ddudocker/k8s-api-gateway:0.0.1
+        image: ddudocker/k8s-api-gateway:0.0.3-SNAPSHOT
         imagePullPolicy: Always
         env:
         - name: SPRING_PROFILES_ACTIVE
