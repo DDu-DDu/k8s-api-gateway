@@ -1,6 +1,6 @@
 package com.welab.k8s_api_gateway.config;
 
-import com.welab.k8s_api_gateway.filter.JwtAuthenticationFilter;
+import com.welab.k8s_api_gateway.security.filter.JwtAuthenticationFilter;
 import com.welab.k8s_api_gateway.security.exception.RestAccessDeniedHandler;
 import com.welab.k8s_api_gateway.security.exception.RestAuthenticationEntryPoint;
 import com.welab.k8s_api_gateway.security.jwt.JwtTokenValidator;

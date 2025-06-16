@@ -1,4 +1,4 @@
-package com.welab.k8s_api_gateway.filter;
+package com.welab.k8s_api_gateway.security.filter;
 
 import com.welab.k8s_api_gateway.security.jwt.JwtTokenValidator;
 import com.welab.k8s_api_gateway.security.jwt.authentication.JwtAuthentication;
