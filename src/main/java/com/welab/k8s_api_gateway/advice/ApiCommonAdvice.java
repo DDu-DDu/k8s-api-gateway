@@ -56,13 +56,13 @@ public class ApiCommonAdvice {
                 "리소스를 찾을 수 없습니다.");
     }
 
-//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-//    @ExceptionHandler({InsufficientAuthenticationException.class})
-//    public ApiResponseDto<String> handleInsufficientAuthenticationException(
-//            InsufficientAuthenticationException e) {
-//        return ApiResponseDto.createError(
-//                "Unauthenticated", "인증되지 않았습니다.");
-//    }
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler({InsufficientAuthenticationException.class})
+    public ApiResponseDto<String> handleInsufficientAuthenticationException(
+            InsufficientAuthenticationException e) {
+        return ApiResponseDto.createError(
+                "Unauthenticated", "인증되지 않았습니다.");
+    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({MethodArgumentNotValidException.class})

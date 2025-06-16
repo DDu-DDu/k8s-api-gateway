@@ -23,8 +23,8 @@ import java.util.List;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig {
-//    private final RestAuthenticationEntryPoint authenticationEntryPoint;
-//    private final RestAccessDeniedHandler accessDeniedHandler;
+    private final RestAuthenticationEntryPoint authenticationEntryPoint;
+    private final RestAccessDeniedHandler accessDeniedHandler;
     private final JwtTokenValidator jwtTokenValidator;
 
     @Bean
@@ -42,10 +42,10 @@ public class WebSecurityConfig {
                         new JwtAuthenticationFilter(jwtTokenValidator),
                         UsernamePasswordAuthenticationFilter.class
                 )
-//                .exceptionHandling((exceptionConfig) ->
-//                        exceptionConfig
-//                                .authenticationEntryPoint(authenticationEntryPoint)
-//                                .accessDeniedHandler(accessDeniedHandler))
+                .exceptionHandling((exceptionConfig) ->
+                        exceptionConfig
+                                .authenticationEntryPoint(authenticationEntryPoint)
+                                .accessDeniedHandler(accessDeniedHandler))
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers("/api/user/v1/auth/**").permitAll()
                         .anyRequest().authenticated()
