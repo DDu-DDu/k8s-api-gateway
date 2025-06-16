@@ -25,12 +25,13 @@ public class JwtAuthentication extends AbstractAuthenticationToken {
     }
 
     @Override
+    public UserPrincipal getPrincipal() {
+        return principal;
+    }
+
+    @Override
     public String getCredentials() {
         return token;
     }
 
-    @Override
-    public UserPrincipal getPrincipal() {
-        return principal;
-    }
 }
