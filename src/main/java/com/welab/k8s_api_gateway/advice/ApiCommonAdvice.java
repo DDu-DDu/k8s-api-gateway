@@ -24,6 +24,8 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({BadParameter.class})
     public ApiResponseDto<String> handleBadParameter(BadParameter e) {
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -33,6 +35,8 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({NotFound.class})
     public ApiResponseDto<String> handleNotFound(NotFound e) {
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -42,6 +46,9 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ClientError.class})
     public ApiResponseDto<String> handleClientError(ClientError e) {
+
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 e.getErrorCode(),
                 e.getErrorMessage()
@@ -51,6 +58,9 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({NoResourceFoundException.class})
     public ApiResponseDto<String> handleNoResourceFoundException(NoResourceFoundException e) {
+
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 "NoResource",
                 "리소스를 찾을 수 없습니다.");
@@ -60,6 +70,9 @@ public class ApiCommonAdvice {
     @ExceptionHandler({InsufficientAuthenticationException.class})
     public ApiResponseDto<String> handleInsufficientAuthenticationException(
             InsufficientAuthenticationException e) {
+
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 "Unauthenticated", "인증되지 않았습니다.");
     }
@@ -71,12 +84,18 @@ public class ApiCommonAdvice {
         ParameterErrorDto.FieldList fieldList = ParameterErrorDto.FieldList.of(result);
 
         String errorMessage = fieldList.getErrorMessage();
+
+        e.printStackTrace();
+
         return ApiResponseDto.createError("ParameterNotValid", errorMessage, fieldList);
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
     public ApiResponseDto<String > handleException(Exception e) {
+
+        e.printStackTrace();
+
         return ApiResponseDto.createError(
                 "ServerError",
                 "서버 에러입니다.");

@@ -26,4 +26,4 @@ spring:
           predicates:
             - Path=/api/post/**
           filters:
-            -addAuthenticationHeader
+            - addAuthenticationHeader
