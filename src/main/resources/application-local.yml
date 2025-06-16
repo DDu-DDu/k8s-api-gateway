@@ -15,9 +15,15 @@ spring:
           predicates: # 라우팅 조건- Path=/api/user/**
           uri: lb://backend-user
           filters:
-            - AddAuthenticationHeader
+            - addAuthenticationHeader
         - id: backend-alim
           predicates: # 라우팅 조건- Path=/api/alim/**
           uri: lb://backend-alim
           filters:
-            - AddAuthenticationHeader
+            - addAuthenticationHeader
+        - id: backend-post
+          uri: http://k8s-backend-post-service:8080
+          predicates:
+            - Path=/api/post/**
+          filters:
+            -addAuthenticationHeader
