@@ -7,6 +7,6 @@ import org.springframework.web.servlet.function.ServerResponse;
 public interface GatewayFilterFunctions {
     @Shortcut
     static HandlerFilterFunction<ServerResponse, ServerResponse> addAuthenticationHeader() {
-        return ofRequestProcessor(AuthenticationHeaderFilterFunction.addHeader());
+        return HandlerFilterFunction.ofRequestProcessor(AuthenticationHeaderFilterFunction.addHeader());
     }
 }
