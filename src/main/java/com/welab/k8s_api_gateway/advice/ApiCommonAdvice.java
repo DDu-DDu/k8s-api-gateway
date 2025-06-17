@@ -24,6 +24,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({BadParameter.class})
     public ApiResponseDto<String> handleBadParameter(BadParameter e) {
+
         e.printStackTrace();
 
         return ApiResponseDto.createError(
@@ -35,6 +36,7 @@ public class ApiCommonAdvice {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({NotFound.class})
     public ApiResponseDto<String> handleNotFound(NotFound e) {
+
         e.printStackTrace();
 
         return ApiResponseDto.createError(
